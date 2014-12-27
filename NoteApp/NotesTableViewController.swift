@@ -8,9 +8,9 @@
 
 import UIKit
 
-class NotesTableViewController: UITableViewController {
+class NotesTableViewController: UITableViewController, AddNoteViewControllerDelegate {
 
-    let notes = []
+    var notes: [String] = []
     
     required init(coder aDecoder: NSCoder) {
         
@@ -18,6 +18,12 @@ class NotesTableViewController: UITableViewController {
         
         super.init(coder: aDecoder)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    // TableView Creation
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -31,8 +37,25 @@ class NotesTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("noteCell") as UITableViewCell
         
-        cell.textLabel?.text = notes[indexPath.row] as? String
+        cell.textLabel?.text = notes[indexPath.row]
         
         return cell
+    }
+    
+    // Protocol implementation
+    
+    func saveNote(controller: AddNoteViewController, noteText: String) {
+        
+        println("Text written in the AddNoteView: \(noteText)")
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+        notes.append(noteText)
+        
+        tableView.reloadData()
+    }
+    
+    func dismissAddViewController(controller: AddNoteViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
