@@ -63,14 +63,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="closeAddNote:" destination="xn1-bR-bGD" eventType="touchUpInside" id="NyY-4u-qCk"/>
+                                    <action selector="closeAddNote:" destination="xn1-bR-bGD" eventType="touchUpInside" id="ZrM-vL-S0I"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="myTextField" destination="Cgn-Z2-2fL" id="uCJ-vt-Hev"/>
+                        <outlet property="myTextField" destination="Cgn-Z2-2fL" id="w2T-2H-nwb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pI2-6x-KCk" userLabel="First Responder" sceneMemberID="firstResponder"/>

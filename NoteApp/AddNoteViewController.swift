@@ -26,13 +26,13 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
     }
     
+    @IBAction func closeAddNote(sender: AnyObject) {
+        delegate?.dismissAddViewController(self)
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         delegate?.saveNote(self, noteText: textField.text)
         return true
-    }
-
-    @IBAction func closeAddNote(sender: AnyObject) {
-        delegate?.dismissAddViewController(self)
     }
 }

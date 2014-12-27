@@ -46,8 +46,6 @@ class NotesTableViewController: UITableViewController, AddNoteViewControllerDele
     
     func saveNote(controller: AddNoteViewController, noteText: String) {
         
-        println("Text written in the AddNoteView: \(noteText)")
-        
         dismissViewControllerAnimated(true, completion: nil)
         
         notes.append(noteText)
@@ -57,5 +55,14 @@ class NotesTableViewController: UITableViewController, AddNoteViewControllerDele
     
     func dismissAddViewController(controller: AddNoteViewController) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "ShowAddNote") {
+            let addNoteViewController = segue.destinationViewController as AddNoteViewController
+            addNoteViewController.delegate = self
+        }
     }
 }
