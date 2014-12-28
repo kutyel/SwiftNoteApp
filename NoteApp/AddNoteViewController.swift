@@ -8,23 +8,31 @@
 
 import UIKit
 
+protocol AddNoteViewControllerDelegate {
+    func saveNote(controller:AddNoteViewController, noteText:String)
+    func dismissAddViewController(controller:AddNoteViewController)
+}
+
 class AddNoteViewController: UIViewController, UITextFieldDelegate {
 
+    var delegate:AddNoteViewControllerDelegate?
     @IBOutlet var myTextField:UITextField?
     
     required init(coder aDecoder: NSCoder) {
-        
         super.init(coder: aDecoder)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
-        println("Text value entered is: \(textField.text)")
-        
-        return true
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-
+    
     @IBAction func closeAddNote(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        delegate?.dismissAddViewController(self)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        delegate?.saveNote(self, noteText: textField.text)
+        return true
     }
 }
