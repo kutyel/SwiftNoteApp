@@ -80,9 +80,9 @@ class NotesTableViewController: UITableViewController, AddNoteViewControllerDele
         
         dismissViewControllerAnimated(true, completion: nil)
         
-        notes.append(noteText)
+        //notes.append(noteText)
         
-        tableView.reloadData()
+        //tableView.reloadData()
         
         let newNote = [ "name" : noteText, "author" : "@kutyel" ]
         
@@ -103,6 +103,7 @@ class NotesTableViewController: UITableViewController, AddNoteViewControllerDele
                 println(response)
             })
             addNoteToAPI.resume()
+            loadNotes()
         }
     }
     
