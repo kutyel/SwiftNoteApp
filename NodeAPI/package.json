@@ -1,12 +1,12 @@
 {
-  "name": "noteapp_api",
-  "version": "0.0.0",
-  "description": "",
+  "name": "NodeAPI",
+  "version": "0.1.0",
+  "description": "Simple node.js API for the Swift NoteApp project.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "kutyel",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.9.2",
